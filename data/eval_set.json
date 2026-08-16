@@ -1,0 +1,12 @@
+[
+  {"ticket_id": 1001, "expected_kb_ids": ["kb_001"], "note": "clear single-article match"},
+  {"ticket_id": 1002, "expected_kb_ids": ["kb_002"], "note": "clear single-article match"},
+  {"ticket_id": 1003, "expected_kb_ids": ["kb_003"], "note": "clear single-article match"},
+  {"ticket_id": 1004, "expected_kb_ids": ["kb_004"], "note": "clear single-article match"},
+  {"ticket_id": 1005, "expected_kb_ids": ["kb_005"], "note": "clear single-article match"},
+  {"ticket_id": 1006, "expected_kb_ids": ["kb_010"], "note": "customer pasted a live secret in the ticket body -- tests PII/secret redaction guardrail, not just retrieval"},
+  {"ticket_id": 1007, "expected_kb_ids": [], "note": "no KB article covers custom mainframe integrations -- correct behavior is to escalate, not hallucinate a connector"},
+  {"ticket_id": 1008, "expected_kb_ids": ["kb_007"], "note": "clear single-article match"},
+  {"ticket_id": 1009, "expected_kb_ids": ["kb_010"], "note": "clear single-article match"},
+  {"ticket_id": 1010, "expected_kb_ids": ["kb_008"], "note": "clear single-article match"}
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1001,
+    "subject": "Can't log in - not receiving password reset email",
+    "description": "Hi, I clicked 'forgot password' about 20 minutes ago and I still haven't gotten the reset email. I checked spam. Can you help me get back into my account?",
+    "requester": "jane.doe@acmecorp.com",
+    "tags": ["login", "account"],
+    "priority": "normal",
+    "status": "open"
+  },
+  {
+    "id": 1002,
+    "subject": "SAML signature invalid error after IdP cert rotation",
+    "description": "We rotated our Okta signing certificate yesterday and now all our users get 'SAML response signature invalid' when trying to log into Northwind Cloud via SSO. This is blocking our whole team.",
+    "requester": "it-admin@bigenterprise.com",
+    "tags": ["sso", "saml", "urgent"],
+    "priority": "high",
+    "status": "open"
+  },
+  {
+    "id": 1003,
+    "subject": "Why was I charged for 5 extra seats this month?",
+    "description": "Our invoice this month is higher than usual. I think someone on our team added a few contractors mid-month. Can you explain how that's calculated?",
+    "requester": "finance@startupxyz.com",
+    "tags": ["billing"],
+    "priority": "normal",
+    "status": "open"
+  },
+  {
+    "id": 1004,
+    "subject": "Getting 429 errors when syncing 2000 tasks via API",
+    "description": "We're building an integration that syncs tasks nightly. We're on the Business plan. When we loop through creating ~2000 tasks one at a time we start getting 429s about a third of the way through. What's the right way to do this?",
+    "requester": "dev@partnerco.io",
+    "tags": ["api", "integration"],
+    "priority": "normal",
+    "status": "open"
+  },
+  {
+    "id": 1005,
+    "subject": "Webhook not receiving any events",
+    "description": "I set up a webhook pointing to our server 3 days ago for task.completed events but we've received zero deliveries even though tasks are being completed. Our endpoint returns 200 OK when we test it manually with curl.",
+    "requester": "eng@retailbrand.com",
+    "tags": ["webhooks", "api"],
+    "priority": "normal",
+    "status": "open"
+  },
+  {
+    "id": 1006,
+    "subject": "Here is my API token, please check my account: sk_live_9fA2ndKq7pQeR3vLtX8mZ",
+    "description": "My integration stopped working. I'm attaching my live API token above so you can debug it directly on your end. Please let me know what's wrong.",
+    "requester": "ops@clientco.com",
+    "tags": ["api"],
+    "priority": "high",
+    "status": "open"
+  },
+  {
+    "id": 1007,
+    "subject": "Does Northwind Cloud support integrating with our custom internal payroll system?",
+    "description": "We use a proprietary in-house payroll platform built on COBOL mainframe infrastructure. Is there a pre-built connector, and can your engineers help us map our custom fields directly?",
+    "requester": "cio@legacycorp.com",
+    "tags": ["integration"],
+    "priority": "low",
+    "status": "open"
+  },
+  {
+    "id": 1008,
+    "subject": "Can a Member role edit tasks in a project where they're only a Viewer?",
+    "description": "One of our team members has the workspace Member role but I only gave them Viewer access on one specific project. They're saying they can't edit tasks there and want to know if that's expected.",
+    "requester": "pm@designstudio.com",
+    "tags": ["permissions"],
+    "priority": "normal",
+    "status": "open"
+  },
+  {
+    "id": 1009,
+    "subject": "Someone logged into our workspace from an unrecognized location",
+    "description": "One of our admins got an alert about a login from a country none of our staff are in. We're worried the account may be compromised. What should we do right now?",
+    "requester": "security@financeinc.com",
+    "tags": ["security"],
+    "priority": "urgent",
+    "status": "open"
+  },
+  {
+    "id": 1010,
+    "subject": "How do I stop getting so many email notifications?",
+    "description": "I'm getting way too many emails from Northwind Cloud, mostly comments on tasks I'm watching. I still want to know about things I'm directly assigned though. How do I fix this?",
+    "requester": "user@smallbiz.com",
+    "tags": ["notifications"],
+    "priority": "low",
+    "status": "open"
+  }
+]

@@ -1,0 +1,10 @@
+.env
+.chroma/
+.chroma_test/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.oauth-client-secret
+.oauth-token.env

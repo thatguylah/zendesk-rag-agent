@@ -1,9 +1,9 @@
 # Northwind Cloud — AI Ticket Resolution Agent
 
-A small, honestly-scoped RAG proof-of-concept built to prep for a Zendesk Forward Deployed
-Engineer interview. It simulates exactly what an FDE builds for a customer: a support ticket
-comes in, the agent retrieves the relevant knowledge-base article, drafts a grounded reply,
-and — critically — **knows when not to answer**.
+A small, honestly-scoped RAG proof-of-concept for Zendesk-integrated ticket resolution. It
+simulates a common customer-support workflow: a support ticket comes in, the agent retrieves
+the relevant knowledge-base article, drafts a grounded reply, and — critically — **knows when
+not to answer**.
 
 It's built against a fictional product ("Northwind Cloud," a project-management SaaS) rather
 than real Zendesk customer data, using the real [Zendesk Ticketing API](https://developer.zendesk.com/api-reference/ticketing/introduction/)
@@ -11,11 +11,10 @@ shape so it's a one-config-change away from pointing at a live Zendesk account.
 
 ## Why this exists
 
-This demo exists to demonstrate practical, hands-on depth in exactly the area a Forward
-Deployed Engineer job spec calls out: *"AI/LLM expertise: practical experience with LLMs,
-prompt engineering, retrieval-augmented generation (RAG), vector stores, and
-evaluation/guardrails for model safety and reliability."* Every one of those five things has
-a dedicated, working piece of code here — not just a wired-up API call to a hosted model.
+This demo exists to demonstrate practical, hands-on depth across the core building blocks of a
+production RAG system: prompt engineering, retrieval-augmented generation (RAG), vector stores,
+and evaluation/guardrails for model safety and reliability. Every one of those has a dedicated,
+working piece of code here — not just a wired-up API call to a hosted model.
 
 ## Architecture
 
@@ -281,8 +280,8 @@ picks a different port, update `allow_origins` in `src/api.py` to match.
 
 ### Packaging for a persistent demo install
 
-`zcli apps:server` is fine for live iteration, but for the interview itself you may want a
-stable install that doesn't depend on a dev server staying attached:
+`zcli apps:server` is fine for live iteration, but for a live demo you may want a stable
+install that doesn't depend on a dev server staying attached:
 
 ```bash
 zcli apps:package    # writes a .zip
@@ -292,7 +291,7 @@ Then Admin Center > Apps and integrations > Zendesk Support apps > Upload privat
 `api_base_url` at wherever `src/api.py` is actually reachable from (e.g. a tunnel like `ngrok
 http 8000` if the API is only running on your laptop, not a public host).
 
-## How this maps to the FDE role
+## How this maps to real Zendesk platform work
 
 This mirrors real Zendesk platform concepts on purpose: the retrieve → generate → govern loop
 here is structurally the same idea behind Zendesk's own "Resolution Learning Loop" and their

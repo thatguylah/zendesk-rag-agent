@@ -52,8 +52,15 @@ def load_kb_articles() -> List[KbArticle]:
 
 
 def build_index(config=CONFIG) -> chromadb.Collection:
-    """(Re)builds the Chroma collection from the KB articles on disk. Idempotent
-    -- safe to call every time the demo starts."""
+    """Builds the Chroma collection from the KB articles on disk if it isn't
+    already there. Safe to call every time any entrypoint starts (app.py,
+    api.py, run_demo.py can all be running at once against the same
+    .chroma/ directory) -- skips the destructive delete+recreate when a
+    collection with the right article count already exists, rather than
+    racing every other running process to rebuild it from under them.
+    (Only checks count, not content, so editing a KB article in place won't
+    be picked up without a manual `python -m src.ingest` -- fine for this
+    demo's static KB, not a general cache-invalidation strategy.)"""
     articles = load_kb_articles()
 
     embedder = get_embedder(config)
@@ -61,7 +68,12 @@ def build_index(config=CONFIG) -> chromadb.Collection:
         embedder.fit([a["text"] for a in articles])
 
     client = get_chroma_client(config.chroma_persist_dir)
-    client.delete_collection("kb_articles") if _collection_exists(client, "kb_articles") else None
+    if _collection_exists(client, "kb_articles"):
+        existing = client.get_collection("kb_articles")
+        if existing.count() == len(articles):
+            return existing
+        client.delete_collection("kb_articles")
+
     collection = client.create_collection(name="kb_articles", metadata={"hnsw:space": "cosine"})
 
     embeddings = embedder.embed([f"{a['title']}\n\n{a['text']}" for a in articles])

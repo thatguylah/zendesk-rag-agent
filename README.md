@@ -206,10 +206,12 @@ with `python evaluate.py`.
 
 ## ZAF sidebar app -- the agent, inside a real Zendesk ticket
 
-[`../zaf-sidebar-app/`](../zaf-sidebar-app/) (a sibling of this repo, not nested inside it) is a
-small [Zendesk Apps Framework](https://developer.zendesk.com/documentation/apps/) app
+[zaf-sidebar-app](https://github.com/thatguylah/zaf-sidebar-app) is a small
+[Zendesk Apps Framework](https://developer.zendesk.com/documentation/apps/) app
 (`ticket_sidebar` location) that puts this same agent directly into the Zendesk agent
-workspace, next to a real ticket -- rather than a separate Streamlit screen. It:
+workspace, next to a real ticket -- rather than a separate Streamlit screen. It's a separate
+repo; the instructions below assume you've cloned it as a sibling directory of this one
+(`git clone https://github.com/thatguylah/zaf-sidebar-app ../zaf-sidebar-app`). It:
 
 1. Reads the open ticket's fields via the ZAF SDK (`client.get('ticket...')`) -- no Zendesk
    API credentials needed in the app itself.
@@ -222,7 +224,7 @@ workspace, next to a real ticket -- rather than a separate Streamlit screen. It:
    repo.
 
 ```
-../zaf-sidebar-app/            # sibling of zendesk-rag-agent/, i.e. Zendesk/zaf-sidebar-app/
+../zaf-sidebar-app/            # https://github.com/thatguylah/zaf-sidebar-app, cloned as a sibling
 ├── manifest.json              # ticket_sidebar location, api_base_url parameter
 ├── translations/
 │   └── en.json                # required by zcli apps:validate -- app name/description strings
